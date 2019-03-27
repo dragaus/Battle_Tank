@@ -2,6 +2,12 @@
 
 #include "TankAIController.h"
 
+void ATankAIController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	GetControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
+}
+
 ATank* ATankAIController::GetControlledTank() const
 {
 	return Cast<ATank>(GetPawn());
